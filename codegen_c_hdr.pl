@@ -652,11 +652,11 @@ $hdr .= <<EOS;
 // Windows STL
 struct stl_string {
     union {
-        char buf[16];
+        char buf[21];
         char *ptr;
     };
-    int32_t len;
-    int32_t capa;
+    int32_t buf_end;
+    int32_t rnext;
 };
 
 struct stl_deque {
@@ -719,7 +719,7 @@ struct stl_vector_$vtype {
     $ctype*ptr;
     $ctype*endptr;
     $ctype*endalloc;
-$vecpad};
+};
 
 EOS
 }
